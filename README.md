@@ -233,6 +233,24 @@ addNeighbors|No one can add neighbors to your node
 removeNeighbors|No one can remove neighbors from your node
 setApiRateLimit|This will prevent external connections from being able to use this command
 
+# Firewall (ufw) rules
+
+The following rules have been used on my node, please adapt accordingly to your setup!
+
+* sudo ufw default allow outgoing
+* sudo ufw default deny incoming
+* sudo ufw allow ssh
+* sudo ufw allow 14265
+* sudo ufw allow 14600/udp
+* sudo ufw allow 15600/tcp
+* sudo ufw allow 16600
+* sudo ufw allow 18600
+* sudo ufw allow 8000
+* sudo ufw enable
+* sudo ufw limit 14265
+* sudo ufw enable
+
+
 ## More information
 
 For more information about the combined projects please refer to the following github repositories:
