@@ -149,18 +149,21 @@ and open the IOTA Dashboard
 
 **PLEASE CHANGE YOUR ADMIN PASSWORD**
 
-### Update when a new release of IRI or Nelson is published
+### Update when a new release of any container is published
 
 Go to your iota-nelson-node folder and update the docker images
 ```
 cd iota-nelson-node
 docker-compose pull
 docker-compose stop
+docker-compose rm [container_name]
+e.g. docker-compose rm nelson.cli
 ```
 
 Run it with:
 ```
-docker-compose up -d
+docker-compose up -d [container_name]
+e.g. docker-compose up -d nelson.cli
 ```
 
 ## IRI Nodes information
