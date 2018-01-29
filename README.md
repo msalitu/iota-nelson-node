@@ -10,7 +10,7 @@
     + [Open Nelson GUI](#open-nelson-gui)
     + [Open Nelson Monitor](#open-nelson-monitor)
     + [Open Grafana Dashboard](#open-grafana-dashboard)
-    + [Update when a new release of IRI or Nelson is published](#update-when-a-new-release-of-iri-or-nelson-is-published)
+    + [Update when a new release of any container is published](#update-when-a-new-release-of-any-container-is-published)
   * [IRI Nodes information](#iri-nodes-information)
   * [Warnings](#warnings)
 - [Ports](#ports)
