@@ -166,6 +166,19 @@ docker-compose up -d [container_name]
 e.g. docker-compose up -d nelson.cli
 ```
 
+Should docker give an error about aufs being busy stop all services and start them again.
+
+e.g. nelson.cli and iota were updated after a snapshot:
+```
+cd iota-nelson-node
+docker-compose pull
+docker-compose stop
+docker-compose rm iota
+docker-compose rm nelson.cli
+docker-compose up -d
+```
+
+
 ## IRI Nodes information
 
 The iota.ini contains three swarm nodes, this nodes will add you back automatically.
