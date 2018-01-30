@@ -151,6 +151,23 @@ and open the IOTA Dashboard
 
 ### Update when a new release of any container is published
 
+#### Use the update script
+
+This update script will pull all containers if updated or not and stop/remove/start **all cotainers**
+
+Make the update script executable
+```
+cd iota-nelson-node
+chmod +x update.sh
+```
+
+Run the update script
+```
+./update.sh
+```
+
+#### Update single container
+
 Go to your iota-nelson-node folder and update the docker images
 ```
 cd iota-nelson-node
@@ -165,7 +182,7 @@ Run it with:
 docker-compose up -d [container_name]
 e.g. docker-compose up -d nelson.cli
 ```
-
+#### Update all containers
 Should docker give an error about aufs being busy stop all services and start them again.
 
 e.g. nelson.cli and iota were updated after a snapshot:
@@ -177,7 +194,6 @@ docker-compose rm iota
 docker-compose rm nelson.cli
 docker-compose up -d
 ```
-
 
 ## IRI Nodes information
 
