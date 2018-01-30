@@ -11,16 +11,22 @@
     + [Open Nelson Monitor](#open-nelson-monitor)
     + [Open Grafana Dashboard](#open-grafana-dashboard)
     + [Update when a new release of any container is published](#update-when-a-new-release-of-any-container-is-published)
+      - [Use the update script](#use-the-update-script)
+      - [Update single container](#update-single-container)
+      - [Update all containers](#update-all-containers)
   * [IRI Nodes information](#iri-nodes-information)
   * [Warnings](#warnings)
-- [Ports](#ports)
-- [Remote API limits](#remote-api-limits)
+    + [Ports](#ports)
+    + [Remote API limits](#remote-api-limits)
+    + [Firewall (ufw) rules](#firewall--ufw--rules)
   * [More information](#more-information)
-  * [Author](#author)
-  * [License](#license)
-  * [Contributing](#contributing)
-    + [Donations](#donations)
+- [Author](#author)
+- [License](#license)
+- [Contributing](#contributing)
+  * [Donations](#donations)
   * [TODO](#todo)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # WARNING
 
@@ -227,7 +233,7 @@ and adapt your `./volumes/nelson/config.ini` accordingly to the number of truste
 
 ## Warnings
 
-# Ports
+### Ports
 
 The ports setup in the docker-compose.yml file opens following container ports
 
@@ -247,7 +253,7 @@ Port/Type | Use
 
 Please assure yourself to set your firewall accordingly, the ports are opened on 0.0.0.0 (all IP adresses, internal and external)
 
-# Remote API limits
+### Remote API limits
 
 Following API limits are now default:
 
@@ -265,7 +271,7 @@ addNeighbors|No one can add neighbors to your node
 removeNeighbors|No one can remove neighbors from your node
 setApiRateLimit|This will prevent external connections from being able to use this command
 
-# Firewall (ufw) rules
+### Firewall (ufw) rules
 
 The following rules have been used on my node, please adapt accordingly to your setup!
 
@@ -293,17 +299,17 @@ For more information about the combined projects please refer to the following g
 * [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon)
 * [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter)
 
-## Author
+# Author
 
 * **Antonio Nardella** - [Twitter](https://twitter.com/antonionardella) - info at antonionardella dot it
 
-## License
+# License
 
 This project is licensed under the ICS License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Contributing
+# Contributing
 
-### Donations
+## Donations
 
 **Donations always welcome**:
 
