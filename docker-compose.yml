@@ -26,7 +26,7 @@ services:
 # Use the following for 4GB rescan and revalidate
 #    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini", "--revalidate", "--rescan"]
 
-nelson.cli:
+  nelson.cli:
     image: romansemko/nelson.cli:latest
     container_name: iota_nelson.cli
     hostname: nelson.cli
@@ -39,7 +39,6 @@ nelson.cli:
     ports:
       - "18600:18600"
       - "16600:16600"
-
 
   nelson.mon:
     image: ioiobzit/nelson.mon:0.0.2
@@ -56,6 +55,18 @@ nelson.cli:
     restart: unless-stopped
     ports:
       - "5000:5000"
+
+  field.cli:
+    image: romansemko/field.cli:latest
+    container_name: iota_field.cli
+    hostname: field.cli
+    restart: unless-stopped
+    volumes:
+      - ./volumes/field/config.ini:/usr/src/field/config.ini:ro
+      - /etc/localtime:/etc/localtime:ro
+    command: "--config /usr/src/field/config.ini"
+    ports:
+      - "21310:21310"
 
   prometheus:
     image: prom/prometheus:latest
@@ -117,5 +128,6 @@ nelson.cli:
       - /etc/localtime:/etc/localtime:ro
     environment:
       - GF_SERVER_PROTOCOL=http
+      - GF_PATHS_PROVISIONING=/var/lib/grafana/provisioning
     links:
       - prometheus:prometheus
