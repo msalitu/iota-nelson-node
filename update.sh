@@ -25,6 +25,7 @@ docker-compose rm -f iota && \
 docker-compose rm -f nelson.cli && \
 docker-compose rm -f nelson.mon && \
 docker-compose rm -f nelson.gui && \
+docker-compose rm -f field.cli && \
 docker-compose rm -f prometheus && \
 docker-compose rm -f iota-prom-exporter && \
 docker-compose rm -f node-exporter && \
