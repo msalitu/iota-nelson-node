@@ -108,8 +108,7 @@ to
 name = My awesome node name
 ```
 
-**Be sure to change your address field to your IOTA address for donations, otherwise thank you for leaving mine**
-**Or add a new seed to get dynamically unused addresses *DO NOT USE YOUR MAIN WALLET SEED* **
+**Be sure to change your address field to your IOTA address for donations, otherwise thank you for leaving mine or add a new seed to get dynamically unused addresses *DO NOT USE YOUR MAIN WALLET SEED* **
 
 Check your CarrIOTA Field node and donate to IOTA nodes here: http://field.carriota.com
 
