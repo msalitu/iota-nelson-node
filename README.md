@@ -5,6 +5,7 @@
   * [Usage](#usage)
     + [Clone the repository](#clone-the-repository)
       - [Change the Nelson config.ini](#change-the-nelson-configini)
+      - [Change the Field config.ini](#change-the-field-configini)
     + [Start the node](#start-the-node)
     + [Check the logs](#check-the-logs)
     + [Open Nelson GUI](#open-nelson-gui)
@@ -30,15 +31,17 @@
 
 # WARNING
 
-I take no responsability about eventual damage!
+I take no responsability about eventual damage! This project includes following alpha and beta software:
+* CarrIOTA Nelson
+* CarrIOTA Field
+* Grafana 5
 
 # iota-nelson-node with docker-compose
 
-This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through Nelson.cli, Nelson.gui and Nelson.mon from the CarrIOTA project.
+This repository contains the docker-compose file to get started with an IOTA/IRI node enhanced through the CarrIOTA project: Nelson.cli, Nelson.gui, Nelson.mon and Field.cli.
 ![top of dashboard](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/nelson.png)
 
-
-It also includes a Grafana Dashboard enhanced through Prometheus, with information about:
+It also includes a Grafana 5 beta Dashboard enhanced through Prometheus, with information about:
 * IRI node stats 
 ![iri stats](https://github.com/ioiobzit/iota-nelson-node/blob/master/images/iri.png)
 
@@ -89,6 +92,26 @@ to
 [nelson]
 name = My awesome node
 ```
+
+#### Change the Field config.ini
+
+Edit the `./volumes/field/config.ini` file to match your needs, for example the name
+
+```
+[field]
+name =  CHANGEME!! @antonionardella
+```
+
+to
+```
+[field]
+name = My awesome node name
+```
+
+**Be sure to change your address field to your IOTA address for donations, otherwise thank you for leaving mine**
+**Or add a new seed to get dynamically unused addresses *DO NOT USE YOUR MAIN WALLET SEED* **
+
+Check your CarrIOTA Field node and donate to IOTA nodes here: http://field.carriota.com
 
 ### Start the node
 
@@ -244,6 +267,7 @@ Port/Type | Use
 15600/tcp | IOTA/IRI TCP connection port
 16600 | Nelson connection port
 18600 | Nelson API port
+21310 | CarrIOTA Field connection port
 3000 | Nelson Monitor
 5000 | Nelson GUI
 9090 | Prometheus
@@ -255,12 +279,7 @@ Please assure yourself to set your firewall accordingly, the ports are opened on
 
 ### Remote API limits
 
-Following API limits are now default:
-
-parameter | explaination 
---- | ---
-interruptAttachingToTangle| To prevent users to do the PoW on your node
-attachToTangle| To prevent users to do the PoW on your node
+**At this point NO API limits are now default!**
 
 Following API limits are to be set as best practice (see iota.partners site or discussions on discord), but are not enabled as explained in the following table
 
@@ -270,25 +289,27 @@ getNeighbors|No one can see the data of your neighbors
 addNeighbors|No one can add neighbors to your node
 removeNeighbors|No one can remove neighbors from your node
 setApiRateLimit|This will prevent external connections from being able to use this command
+interruptAttachingToTangle| To prevent users to do the PoW on your node
+attachToTangle| To prevent users to do the PoW on your node
 
 ### Firewall (ufw) rules
 
 The following rules have been used on my node, please adapt accordingly to your setup!
-
-* sudo ufw default allow outgoing
-* sudo ufw default deny incoming
-* sudo ufw allow ssh
-* sudo ufw allow 14265
-* sudo ufw allow 14600/udp
-* sudo ufw allow 15600/tcp
-* sudo ufw allow 16600
-* sudo ufw allow 18600
-* sudo ufw allow 8000
-* sudo ufw enable
-* sudo ufw limit 14265
-* sudo ufw enable
-
-
+```
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw allow ssh
+sudo ufw allow 14265
+sudo ufw allow 14600/udp
+sudo ufw allow 15600/tcp
+sudo ufw allow 16600
+sudo ufw allow 18600
+sudo ufw allow 21310/tcp
+sudo ufw allow 8000
+sudo ufw enable
+sudo ufw limit 14265
+sudo ufw enable
+```
 ## More information
 
 For more information about the combined projects please refer to the following github repositories:
@@ -297,6 +318,7 @@ For more information about the combined projects please refer to the following g
 * [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli)
 * [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui)
 * [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon)
+* [CarrIOTA Field client](https://github.com/SemkoDev/field.cli)
 * [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter)
 
 # Author
@@ -324,5 +346,5 @@ BTC:
 ```
 
 ## TODO
-- [ ] [Update Grafana Deploy as soon as loading datasource from file is available in stable version](https://github.com/grafana/grafana/issues/5674) - https://github.com/grafana/grafana/pull/9504
-- [ ] [Update Grafana Deploy as soon as loading dashboards from file is available in stable version](https://github.com/grafana/grafana/pull/10052)
+- [x] [Update Grafana Deploy as soon as loading datasource from file is available in stable version](https://github.com/grafana/grafana/issues/5674) - https://github.com/grafana/grafana/pull/9504
+- [x] [Update Grafana Deploy as soon as loading dashboards from file is available in stable version](https://github.com/grafana/grafana/pull/10052)
