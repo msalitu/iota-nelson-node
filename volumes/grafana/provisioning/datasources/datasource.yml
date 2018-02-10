@@ -26,7 +26,7 @@ datasources:
   # <bool> enable/disable with credentials headers
   with_credentials:
   # <bool> mark as default datasource. Max one per org
-  is_default: 1
+  is_default: true
   # <map> fields that will be converted to json and stored in json_data
   # <string> json object of data that will be encrypted.
   # <bool> allow users to edit datasources from the UI.
