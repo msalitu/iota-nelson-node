@@ -10,7 +10,7 @@ echo "###################################################"
 echo "# Pull latest version from github                 #"
 echo "###################################################"
 
-git pull
+git pull && \
 
 echo "###################################################"
 echo "# Stop all iota-nelson-node docker containers     #"
