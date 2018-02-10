@@ -94,20 +94,20 @@ name = My awesome node name
 #### Change the Field config.ini
 
 Edit the `./volumes/field/config.ini` file to match your needs, for example the name
+
 ```
-[nelson]
+[field]
 name =  CHANGEME!! @antonionardella
 ```
 
 to
 ```
-[nelson]
+[field]
 name = My awesome node name
 ```
 
-!! Be sure to change your address field to your IOTA address for donations, otherwise thank you !!
-
-Or add a new seed *DO NOT USE YOUR MAIN WALLET SEED* to get dynamically unused addresses
+**Be sure to change your address field to your IOTA address for donations, otherwise thank you for leaving mine**
+**Or add a new seed to get dynamically unused addresses *DO NOT USE YOUR MAIN WALLET SEED* **
 
 Check your CarrIOTA Field node and donate to other nodes here: http://field.carriota.com
 
@@ -277,7 +277,7 @@ Please assure yourself to set your firewall accordingly, the ports are opened on
 
 ### Remote API limits
 
-At this point NO API limits are now default!
+**At this point NO API limits are now default!**
 
 Following API limits are to be set as best practice (see iota.partners site or discussions on discord), but are not enabled as explained in the following table
 
