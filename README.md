@@ -109,6 +109,8 @@ name = My awesome node name
 
 Or add a new seed *DO NOT USE YOUR MAIN WALLET SEED* to get dynamically unused addresses
 
+Check your CarrIOTA Field node and donate to other nodes here: http://field.carriota.com
+
 ### Start the node
 
 Enter the iota-nelson-node folder
