@@ -1,4 +1,4 @@
-- name: 'default'
+- name: 'iota0mq.json'
   org_id: 1
   folder: ''
   type: file
