@@ -7,6 +7,12 @@ echo "# https://twitter.com/antonionardella             #"
 echo "###################################################"
 
 echo "###################################################"
+echo "# Pull latest version from github                 #"
+echo "###################################################"
+
+git pull
+
+echo "###################################################"
 echo "# Stop all iota-nelson-node docker containers     #"
 echo "###################################################"
 
