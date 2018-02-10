@@ -5,6 +5,7 @@
   * [Usage](#usage)
     + [Clone the repository](#clone-the-repository)
       - [Change the Nelson config.ini](#change-the-nelson-configini)
+      - [Change the Field config.ini](#change-the-field-configini)
     + [Start the node](#start-the-node)
     + [Check the logs](#check-the-logs)
     + [Open Nelson GUI](#open-nelson-gui)
@@ -87,8 +88,26 @@ name = CHANGE ME!
 to
 ```
 [nelson]
-name = My awesome node
+name = My awesome node name
 ```
+
+#### Change the Field config.ini
+
+Edit the `./volumes/field/config.ini` file to match your needs, for example the name
+```
+[nelson]
+name =  CHANGEME!! @antonionardella
+```
+
+to
+```
+[nelson]
+name = My awesome node name
+```
+
+!! Be sure to change your address field to your IOTA address for donations, otherwise thank you !!
+
+Or add a new seed *DO NOT USE YOUR MAIN WALLET SEED* to get dynamically unused addresses
 
 ### Start the node
 
@@ -244,6 +263,7 @@ Port/Type | Use
 15600/tcp | IOTA/IRI TCP connection port
 16600 | Nelson connection port
 18600 | Nelson API port
+21310 | CarrIOTA Field connection port
 3000 | Nelson Monitor
 5000 | Nelson GUI
 9090 | Prometheus
@@ -255,12 +275,7 @@ Please assure yourself to set your firewall accordingly, the ports are opened on
 
 ### Remote API limits
 
-Following API limits are now default:
-
-parameter | explaination 
---- | ---
-interruptAttachingToTangle| To prevent users to do the PoW on your node
-attachToTangle| To prevent users to do the PoW on your node
+At this point NO API limits are now default!
 
 Following API limits are to be set as best practice (see iota.partners site or discussions on discord), but are not enabled as explained in the following table
 
@@ -270,6 +285,8 @@ getNeighbors|No one can see the data of your neighbors
 addNeighbors|No one can add neighbors to your node
 removeNeighbors|No one can remove neighbors from your node
 setApiRateLimit|This will prevent external connections from being able to use this command
+interruptAttachingToTangle| To prevent users to do the PoW on your node
+attachToTangle| To prevent users to do the PoW on your node
 
 ### Firewall (ufw) rules
 
@@ -283,6 +300,7 @@ The following rules have been used on my node, please adapt accordingly to your 
 * sudo ufw allow 15600/tcp
 * sudo ufw allow 16600
 * sudo ufw allow 18600
+* sudo ufw allow 21310/tcp
 * sudo ufw allow 8000
 * sudo ufw enable
 * sudo ufw limit 14265
@@ -297,6 +315,7 @@ For more information about the combined projects please refer to the following g
 * [CarrIOTA Nelson client](https://github.com/SemkoDev/nelson.cli)
 * [CarrIOTA Nelson GUI](https://github.com/SemkoDev/nelson.gui)
 * [CarrIOTA Nelson monitor](https://github.com/SemkoDev/nelson.mon)
+* [CarrIOTA Field client](https://github.com/SemkoDev/field.cli)
 * [IOTA prometheus exporter](https://github.com/crholliday/iota-prom-exporter)
 
 # Author
