@@ -7,12 +7,6 @@ echo "# https://twitter.com/antonionardella             #"
 echo "###################################################"
 
 echo "###################################################"
-echo "# Pull latest version from github                 #"
-echo "###################################################"
-
-git pull
-
-echo "###################################################"
 echo "# Pulling all iota-nelson-node containers updates #"
 echo "###################################################"
 
