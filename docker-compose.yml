@@ -82,8 +82,8 @@ services:
       - "--storage.tsdb.path=/data"
       - "--web.console.libraries=/usr/share/prometheus/console_libraries"
       - "--web.console.templates=/usr/share/prometheus/consoles"
-    ports:
-      - "9090:9090"
+    expose:
+      - "9090"
     links:
       - iota-prom-exporter:iota-prom-exporter
       - node-exporter:node-exporter
@@ -93,8 +93,8 @@ services:
     container_name: iota_prom-iotaexp
     hostname: iotape
     restart: on-failure
-    ports:
-      - "9311:9311"
+    expose:
+      - "9311"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./volumes/ipe/config.js:/exporter/config.js
@@ -114,8 +114,8 @@ services:
       - "--path.sysfs=/host/sys"
       - "--collector.filesystem.ignored-mount-points"
       - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/var/lib/docker/aufs)($$|/)"
-    ports:
-       - "9100:9100"
+    expose:
+       - "9100"
        
   grafana:
     image: grafana/grafana:latest
