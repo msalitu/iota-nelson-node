@@ -10,31 +10,31 @@ echo "###################################################"
 echo "# Pull latest version from github                 #"
 echo "###################################################"
 
-git pull && \
-
-echo "###################################################"
-echo "# Stop all iota-nelson-node docker containers     #"
-echo "###################################################"
-
-docker-compose stop && \
+git pull
 
 echo "###################################################"
 echo "# Pulling all iota-nelson-node containers updates #"
 echo "###################################################"
 
-docker-compose pull && \
+docker-compose pull
+
+echo "###################################################"
+echo "# Stop all iota-nelson-node docker containers     #"
+echo "###################################################"
+
+docker-compose stop
 
 echo "###################################################"
 echo "# Removing all old iota-nelson-node containers    #"
 echo "###################################################"
-docker-compose rm -f iota && \
-docker-compose rm -f nelson.cli && \
-docker-compose rm -f nelson.mon && \
-docker-compose rm -f nelson.gui && \
-docker-compose rm -f prometheus && \
-docker-compose rm -f iota-prom-exporter && \
-docker-compose rm -f node-exporter && \
-docker-compose rm -f grafana && \
+docker-compose rm -f iota
+docker-compose rm -f nelson.cli
+docker-compose rm -f nelson.mon
+docker-compose rm -f nelson.gui
+docker-compose rm -f prometheus
+docker-compose rm -f iota-prom-exporter
+docker-compose rm -f node-exporter
+docker-compose rm -f grafana
 
 echo "###################################################"
 echo "# Restart all iota-nelson-node docker containers  #"
