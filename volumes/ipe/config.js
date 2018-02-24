@@ -15,7 +15,7 @@ module.exports = {
 
     // if true, will pull in market info (IOT to USD, IOT to BTC, etc)
     // *** Leave blank if you do not want market into pulled in ***
-    market_info_flag: 'true'
+    market_info_flag: 'true',
     
     // window for bucketing confirmation times by transaction
     // represents seconds and aggregates a histogram
