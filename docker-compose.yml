@@ -63,6 +63,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./volumes/field/config.ini:/usr/src/field/config.ini:ro
+      - ./volumes/field/root:/root
       - /etc/localtime:/etc/localtime:ro
     command: "--config /usr/src/field/config.ini"
     ports:
