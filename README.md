@@ -81,16 +81,29 @@ git clone https://github.com/ioiobzit/iota-nelson-node.git
 
 #### Change the Nelson config.ini
 
-Edit the `./volumes/nelson/config.ini` file to match your needs, for example the name
+Edit the `./volumes/nelson/config.ini` file to match your needs, for example the name, API username/password
 ```
 [nelson]
 name = CHANGE ME!
+.
+.
+.
+; Protect API with basic auth
+[nelson.apiAuth]
+username=user
+password=pass
 ```
 
 to
 ```
 [nelson]
 name = My awesome node
+.
+.
+.; Protect API with basic auth
+[nelson.apiAuth]
+username=MyAweSomeUs3rnema
+password=MyAweSomeP4ssw0rd
 ```
 
 #### Change the Field config.ini
