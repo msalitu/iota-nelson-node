@@ -152,7 +152,7 @@ docker logs nelson.cli
 
 Open your browser to
 ```
-http://DockerHostIP:5000/DockerHostIP/18600/#/<username>:<password>
+http://DockerHostIP:5000/#/<username>:<password>
 ```
 
 ### Open Nelson Monitor
