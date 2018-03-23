@@ -78,6 +78,21 @@ Knowledge about your operating system (Windows, Linux, MacOS).
 ```
 git clone https://github.com/ioiobzit/iota-nelson-node.git
 ```
+#### Choose RAM for Java in docker-compose.yml
+
+Edit `docker-compose.yml` which is located in the iota-nelson-node folder to choose the RAM to run Java for IOTA iri, for example using 8GB for java uncomment by removing `#` next to the command
+
+```
+ Use the following for 8GB
+ command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx8g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini"]
+# Use the following for 4GB
+#    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini"]
+ Use the following for 8GB rescan and revalidate
+    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx8g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini", "--revalidate", "--rescan"]
+# Use the following for 4GB rescan and revalidate
+#    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini", "--revalidate", "--rescan"]
+Edit the `./volumes/nelson/config.ini` file to match your needs, for example the name, API username/password
+```
 
 #### Change the Nelson config.ini
 
