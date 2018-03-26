@@ -3,7 +3,7 @@ version: "2"
 services:
 
   iota:
-    image: iotaledger/iri:latest
+    image: iotaledger/iri:v1.4.2.2
     container_name: iota_iri
     hostname: iota
     restart: unless-stopped
@@ -27,7 +27,7 @@ services:
 #    command: ["/usr/bin/java", "-XX:+DisableAttachMechanism", "-Xmx4g", "-Xms256m", "-Dlogback.configurationFile=/iri/conf/logback.xml", "-Djava.net.preferIPv4Stack=true", "-jar", "iri.jar", "-c", "/iri.iota.ini", "--revalidate", "--rescan"]
 
   nelson.cli:
-    image: romansemko/nelson.cli:latest
+    image: romansemko/nelson.cli:0.4.0-beta
     container_name: iota_nelson.cli
     hostname: nelson.cli
     restart: unless-stopped
@@ -41,17 +41,19 @@ services:
       - "16600:16600"
 
   nelson.mon:
-    image: ioiobzit/nelson.mon:0.0.2
+    build: https://github.com/SemkoDev/nelson.mon.git
     container_name: iota_nelson.mon
     hostname: nelson.mon
+    network_mode: "host"
     restart: unless-stopped
     ports:
       - "3000:3000"
 
   nelson.gui:
-    image: ioiobzit/nelson.gui:0.1.5
+    image: romansemko/nelson.gui:0.2.2-beta
     container_name: iota_nelson.gui
     hostname: nelson.gui
+    network_mode: "host"
     restart: unless-stopped
     ports:
       - "5000:5000"
@@ -70,7 +72,7 @@ services:
       - "21310:21310"
 
   prometheus:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v2.2.0
     container_name: iota_prometheus
     hostname: prometheus
     restart: unless-stopped
@@ -105,6 +107,8 @@ services:
     container_name: iota_prom-nodeexp
     hostname: node-exporter
     restart: unless-stopped
+    logging:
+        driver: none
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
@@ -113,8 +117,8 @@ services:
     command:
       - "--path.procfs=/host/proc"
       - "--path.sysfs=/host/sys"
-      - "--collector.filesystem.ignored-mount-points"
-      - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
+      - --collector.filesystem.ignored-mount-points
+      - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs|/rootfs/sys/kernel/debug/tracing)($$|/)"
     expose:
        - "9100"
        
