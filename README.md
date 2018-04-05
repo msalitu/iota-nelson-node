@@ -155,12 +155,12 @@ docker-compose up -d
 
 Check the IRI logs with
 ```
-docker logs iota
+docker logs iota_iri
 ```
 
 Check the Nelson logs with
 ```
-docker logs nelson.cli
+docker logs iota_nelson.cli
 ```
 
 ### Open Nelson GUI
